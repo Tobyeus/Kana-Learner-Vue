@@ -12,18 +12,20 @@
             @click="chooseAlphabet('katakana')"
         >Katakana</choice-button>
     </div>
-    <div class="characterChoice" v-if="options.hiragana || options.katakana" >
+    <div class="characters" v-if="options.hiragana || options.katakana">
         <choice-button 
             class="choice"
             v-for="item in characters"
             :class="item.clicked ? 'selected' : ''"
             :key="item.name" 
-            @click="selectButton(item)">{{item.name}}
+            @click="selectButton(item)"
+            >{{item.name}}
         </choice-button> 
     </div>
     <start-button @click="startGame">
         Start
     </start-button>
+    <p v-if="nothingSelected" class="error">There are no characters selected.</p>
 </div>    
 </template>
 
@@ -37,6 +39,7 @@ export default {
     },
     data(){
         return {
+                nothingSelected: false,
                 options: {
                     hiragana: false,
                     katakana: false,
@@ -50,6 +53,10 @@ export default {
                         clicked: false,
                         name: 'ka'
                     },
+                    ga: {
+                        clicked: false,
+                        name: 'ga'
+                    },
                     sa: {
                         clicked: false,
                         name: 'sa'
@@ -57,6 +64,10 @@ export default {
                     ta: {
                         clicked: false,
                         name: 'ta'
+                    },
+                    za: {
+                        clicked: false,
+                        name: 'za'
                     },
                     na: {
                         clicked: false,
@@ -66,6 +77,10 @@ export default {
                         clicked: false,
                         name: 'ha'
                     },
+                    ba: {
+                        clicked: false,
+                        name: 'ba'
+                    },
                     ma: {
                         clicked: false,
                         name: 'ma'
@@ -73,6 +88,10 @@ export default {
                     ya: {
                         clicked: false,
                         name: 'ya'
+                    },
+                    pa: {
+                        clicked: false,
+                        name: 'pa'
                     },
                     ra: {
                         clicked: false,
@@ -87,25 +106,26 @@ export default {
     },
     methods: {
         chooseAlphabet(alphabet) {
+            // Case when Button was already selected
             if( !this.options[alphabet] ) {
                 this.clearAlphabetChoice();
             }
             this.options[alphabet] = !this.options[alphabet];
         },
         clearAlphabetChoice() {
+            // Clears Hiragana and Katakana button
             this.options.hiragana = false;
             this.options.katakana = false;
         },
         selectButton(charSet) {
             // Cases if an button was already clicked or not
             if( !this.characters[charSet.name].clicked ) {
+                this.nothingSelected = false;
                 this.$store.dispatch('AddSelected', charSet.name);
             } else {
                this.$store.dispatch('RemoveSelected', charSet.name);
             }
-            // Managing clicked property for CSS
             this.characters[charSet.name].clicked = !this.characters[charSet.name].clicked;
-            this.$store.getters.selectedSets;
         },
         startGame() {
             if( this.options.hiragana ) {
@@ -113,28 +133,34 @@ export default {
             } else{
                 this.$store.dispatch('SelectAlphabet', 'katakana');
             }
+            // Cases when no alphabet or no characters are selected
+            if( this.options.hirgana && this.options.katakana || this.$store.getters.selectedSets.length === 0 ) {
+                this.nothingSelected = true;
+                return;
+            }
             this.$router.push("/quiz");
         },
     },
     beforeMount() {
-        console.log('Clear Settings');
+        // Clear Settings
         this.$store.dispatch('ClearSettings');
     }
 }
 </script>
 <style scoped>
-.system {
-    display: flex;
-    justify-content: center;
-}
 .options-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.system {
+    display: flex;
+    justify-content: center;
+    width:80%
+}
 .alphabet {
     text-align: center;
-    width: auto;
+    width: 20rem;
     margin: 1rem;
     color: #073b4c;
     background-color: #fff;
@@ -146,8 +172,15 @@ export default {
     cursor: pointer;
     transition: 0.5s;
 }
+.characters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    width:70%
+}
 .choice {
-    width: 50%;
+    text-align: center;
+    width: 80%;
     margin: 0.5rem;
     color: #073b4c;
     background-color: #fff;
@@ -165,10 +198,9 @@ export default {
     cursor: pointer;
     transition: 0.5s;
 }
-.characterChoice {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    width: 40%;
+.error {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: red;
+    font-size: 20px;
 }
 </style>

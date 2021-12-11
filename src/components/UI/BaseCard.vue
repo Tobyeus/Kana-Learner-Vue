@@ -3,8 +3,8 @@
          :class="{
          'focus': focusUsedCard,
          'solved': isCorrect,
-         'notSolved': !isWrong,
-         'wrong': isWrong
+         'notSolved': !solved && !isWrong,
+         'wrong': isWrong && !solved,
             }">
         <h2>{{name}}</h2>
         <input class=''
@@ -22,6 +22,7 @@
 
 <script>
 export default {
+    emits: ['cardCorrect'],
     props:['name','solution'],
     data() {
         return {
@@ -39,13 +40,23 @@ export default {
             if ( this.textInput === input ){
                 this.isCorrect = true;
                 this.solved = true;
+                this.isWrong = false;
+                this.cardIsCorrect();
             }
             if ( this.textInput != input ){
                 this.isWrong = true;
+
             }
             this.focusUsedCard = false;
-            event.target.parentElement.nextElementSibling.children[1].focus()
+            if( event.target.parentElement.nextElementSibling === null ) {
+                console.log('No other Element');
+            } else{
+                event.target.parentElement.nextElementSibling.children[1].focus();
+            }
         },
+        cardIsCorrect() {
+            this.$emit('cardCorrect');
+        }
     }
 }
 </script>

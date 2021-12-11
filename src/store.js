@@ -10,17 +10,32 @@ const store = createStore({
                 ka: {
                     ka:'か',ki:'き',ku:'く', ke:'け', ko:'こ'
                 },
+                ga: {
+                    ga:'が',gi:'ぎ',gu:'ぐ', ge:'げ', go:'ご'
+                },
                 sa: {
                     sa:'さ',shi:'し',su:'す', se:'せ', so:'そ'
                 },
+                za: {
+                    za:'ざ',ji:'じ',zu:'ず', ze:'ぜ', zo:'ぞ'
+                },
                 ta: {
                     ta:'た',chi:'ち',tsu:'つ', te:'て', to:'と'
+                },
+                da: {
+                    da:'だ',ji:'ぢ',zu:'づ', te:'で', to:'ど'
                 },
                 na: {
                     na:'な',ni:'に',nu:'ぬ', ne:'ね', no:'の'
                 },
                 ha: {
                     ha:'は',hi:'ひ',fu:'ふ', he:'へ', ho:'ほ'
+                },
+                pa: {
+                    pa:'ぱ',pi:'ぴ',pu:'ぷ', pe:'ぺ', po:'ぽ'
+                },
+                ba: {
+                    ba:'ば',bi:'び',bu:'ぶ', be:'べ', bo:'ぼ'
                 },
                 ma: {
                     ma:'ま',mi:'み',mu:'む', me:'め', mo:'も'
@@ -90,7 +105,12 @@ const store = createStore({
         clearSettings(state) {
             state.alphabet = '';
             state.quizCharacters = [];
-        }
+            state.numberOfCards = null;
+            state.correctCards = null;
+        },
+        setNumberOfCards(state, payload) {
+            state.numberOfCards = payload;
+        },
     },
     actions: {
         AddSelected(context, payload) {
@@ -104,6 +124,9 @@ const store = createStore({
         },
         ClearSettings(context) {
             context.commit('clearSettings');
+        },
+        CardIsCorrect(context) {
+            context.commit('cardIsCorrect');
         }
     },
     getters: {
@@ -112,6 +135,9 @@ const store = createStore({
         },
         getAlphabet(state) {
             return state.alphabet;
+        },
+        getNumberOfCards(state) {
+            return state.numberOfCards;
         }
     }
 });

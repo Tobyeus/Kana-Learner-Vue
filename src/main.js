@@ -12,9 +12,7 @@ import StartButton from './components/UI/StartButton.vue';
 import TheHeader from './components/UI/TheHeader.vue';
 
 const app = createApp(App);
-app.component('base-card', BaseCard);
-app.component('start-button', StartButton);
-app.component('the-header', TheHeader);
-app.use(Store);
-app.use(Router);
+
+app.component('base-card', BaseCard).component('start-button', StartButton).component('the-header', TheHeader);
+app.use(Store).use(Router);
 app.mount('#app');

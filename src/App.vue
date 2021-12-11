@@ -5,21 +5,6 @@
 </div>
 </template>
 
-<script>
-export default {
-    data(){
-        return {
-            playerIsReady: false,
-        };
-    },
-    methods: {
-        startQuiz() {
-            this.playerIsReady = true;
-        }
-    },
-
-}
-</script>
 <style>
 * {
     margin: 0px;
