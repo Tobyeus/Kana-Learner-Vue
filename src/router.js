@@ -7,8 +7,8 @@ import TheGrid from './components/pages/TheGrid.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: Options },
-        { path: '/quiz', component: TheGrid }
+        { path: '/KanaAppDeploy', component: Options },
+        { path: '/KanaAppDeploy/quiz', component: TheGrid }
     ]
 });
 

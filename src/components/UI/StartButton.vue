@@ -8,12 +8,7 @@
 
 <script>
 export default {
-    emit:['start-game'],
-    data() {
-        return {
-            playerIsReady: false,
-        };
-    }
+    emit:['start-game']
 }
 </script>
 

@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         playAgain() {
-            this.$router.push("/");
+            this.$router.push("/KanaAppDeploy/");
         },
         cardCorrect() {
             this.counter += 1;
@@ -72,7 +72,7 @@ export default {
         this.numberOfCards = Object.keys(this.quizCharacters).length;
         // Cases in which no data is loaded -> redirect to home
         if( this.numberOfCards === 0 ) {
-            this.$router.push('/');
+            this.$router.push('/KanaAppDeploy/');
         }
     }
 }

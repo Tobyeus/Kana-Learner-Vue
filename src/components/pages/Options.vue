@@ -138,7 +138,7 @@ export default {
                 this.nothingSelected = true;
                 return;
             }
-            this.$router.push("/quiz");
+            this.$router.push("/KanaAppDeploy/quiz");
         },
     },
     beforeMount() {
