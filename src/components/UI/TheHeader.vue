@@ -1,7 +1,8 @@
 <template>
     <header>
-        <h1>Hiragana quiz by Tobyeus</h1>
-        <h2>Type the names of the Characters</h2>
+        <h1>Kana quiz by Tobyeus</h1>
+        <h2>Select the characters you want to practise</h2>
+        <h3>Enter the romaji of the character to solve the cards</h3>
     </header>
 </template>
 
