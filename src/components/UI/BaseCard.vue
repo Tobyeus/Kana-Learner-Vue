@@ -49,7 +49,7 @@ export default {
             }
             this.focusUsedCard = false;
             if( event.target.parentElement.nextElementSibling === null ) {
-                console.log('No other Element');
+                //console.log('No other Element');
             } else{
                 event.target.parentElement.nextElementSibling.children[1].focus();
             }

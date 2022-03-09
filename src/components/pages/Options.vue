@@ -1,5 +1,5 @@
 <template>
-<div class='options-wrapper'>
+<div id='options-wrapper'>
     <div class='system'>
         <choice-button 
             class="alphabet" 
@@ -26,7 +26,7 @@
         Start
     </start-button>
     <p v-if="nothingSelected" class="error">There are no characters selected.</p>
-</div>    
+</div>
 </template>
 
 <script>
@@ -77,9 +77,9 @@ export default {
                         clicked: false,
                         name: 'ha'
                     },
-                    ba: {
+                    pa: {
                         clicked: false,
-                        name: 'ba'
+                        name: 'pa'
                     },
                     ma: {
                         clicked: false,
@@ -89,9 +89,9 @@ export default {
                         clicked: false,
                         name: 'ya'
                     },
-                    pa: {
+                    ba: {
                         clicked: false,
-                        name: 'pa'
+                        name: 'ba'
                     },
                     ra: {
                         clicked: false,
@@ -148,7 +148,7 @@ export default {
 }
 </script>
 <style scoped>
-.options-wrapper {
+#options-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;

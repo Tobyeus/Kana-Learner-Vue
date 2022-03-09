@@ -57,17 +57,32 @@ const store = createStore({
                 ka: {
                     ka:'カ',ki:'キ',ku:'ク', ke:'ケ', ko:'コ'
                 },
+                ga: {
+                    ga:'ガ ',gi:'ギ ',gu:'グ ', ge:'ゲ ', go:'ゴ '
+                },
                 sa: {
                     sa:'サ',shi:'シ',su:'ス', se:'セ', so:'ソ'
                 },
+                za: {
+                    za:'ザ ',ji:'ジ ',zu:'ズ', ze:'ゼ ', zo:'ゾ '
+                },
                 ta: {
                     ta:'タ',chi:'チ',tsu:'ツ', te:'テ', to:'ト'
+                },
+                da: {
+                    da:'ダ',ji:'ヂ',zu:'ヅ', te:'デ', to:'ド'
                 },
                 na: {
                     na:'ナ',ni:'ニ',nu:'ヌ', ne:'ネ', no:'ノ'
                 },
                 ha: {
                     ha:'ハ',hi:'ヒ',fu:'フ', he:'ヘ', ho:'ホ'
+                },
+                pa: {
+                    pa:'パ',pi:'ピ',pu:'プ', pe:'ぺ', po:'ポ'
+                },
+                ba: {
+                    ba:'パ',bi:'ビ',bu:'ブ', be:'ベ', bo:'ボ'
                 },
                 ma: {
                     ma:'マ',mi:'ミ',mu:'ム', me:'メ', mo:'モ'
