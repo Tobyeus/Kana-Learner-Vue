@@ -1,4 +1,5 @@
 <template>
+<div id="quiz-wrapper">
     <div id="grid">
         <base-card
         v-for="element in quizCharacters"
@@ -7,6 +8,9 @@
         :solution="element.solution"
         v-on:card-correct="cardCorrect"
         ></base-card>
+    </div>
+    <div>
+        <help-card v-if="!gameFinished"></help-card>
     </div>
     <div v-if="gameFinished">
         <div>
@@ -17,6 +21,7 @@
             <start-button @click="playAgain">Play Again</start-button>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -38,7 +43,6 @@ export default {
         },
         cardCorrect() {
             this.counter += 1;
-            console.log(this.counter);
         },
         gameDone() {
             this.gameFinished = true;
@@ -47,7 +51,6 @@ export default {
     watch: {
         counter(value){
             if( value === this.numberOfCards ) {
-                console.log('Game Done!');
                 this.gameDone();
             }
         },
@@ -79,6 +82,11 @@ export default {
 </script>
 
 <style scoped>
+#quiz-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #grid {
     margin: 30px;
     display: flex;
