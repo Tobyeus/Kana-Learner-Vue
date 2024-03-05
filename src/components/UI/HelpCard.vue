@@ -1,7 +1,6 @@
 <template>
     <div class="help-card">
-        <h3>Need Help?</h3>
-        <p> You can find look into the <a href="https://de.wikipedia.org/wiki/Hiragana">Hiragana</a> and <a href="https://de.wikipedia.org/wiki/Katakana">Katakana</a> Symbols on their wikipedia pages. </p>
+        <slot/>
     </div>
 </template>
 

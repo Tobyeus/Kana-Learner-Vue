@@ -1,5 +1,13 @@
 <template>
 <div id='options-wrapper'>
+    <div class="helper">
+        <help-card v-if="!gameFinished">
+            <h3>Welcome to the Kana Quiz</h3>
+            <p>This app helps you to learn the japanese alphabet systems <a href="https://de.wikipedia.org/wiki/Hiragana">Hiragana</a> and <a href="https://de.wikipedia.org/wiki/Katakana">Katakana</a>. <br>
+               First select the system you want to practise and then the character rows. To finish the quiz, type the pronunciation of each character in their textfield.</p>
+        </help-card>
+    </div>
+
     <div class='system'>
         <choice-button 
             class="alphabet" 
@@ -178,6 +186,21 @@ export default {
     justify-items: center;
     width:70%
 }
+
+.helper {
+    padding: 1rem;
+}
+
+.helper h2, p {
+    padding: 1rem;
+    text-align: center;
+    color: #073b4c;
+    font-family: 'Roboto', sans-serif;
+}
+.helper h2 {
+    font-size: 40px;
+}
+
 .choice {
     text-align: center;
     width: 80%;

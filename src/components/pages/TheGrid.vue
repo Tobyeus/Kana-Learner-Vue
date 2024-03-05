@@ -10,7 +10,10 @@
         ></base-card>
     </div>
     <div>
-        <help-card v-if="!gameFinished"></help-card>
+        <help-card v-if="!gameFinished">
+            <h3>Need Help?</h3>
+            <p> You can find look into the <a href="https://de.wikipedia.org/wiki/Hiragana">Hiragana</a> and <a href="https://de.wikipedia.org/wiki/Katakana">Katakana</a> symbols on wikipedia.</p>
+        </help-card>
     </div>
     <div v-if="gameFinished">
         <div>
