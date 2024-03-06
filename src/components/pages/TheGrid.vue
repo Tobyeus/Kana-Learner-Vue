@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         playAgain() {
-            this.$router.push("/KanaAppDeploy/");
+            this.$router.push("/Kana-Learner-Vue/");
         },
         cardCorrect() {
             this.counter += 1;
@@ -78,7 +78,7 @@ export default {
         this.numberOfCards = Object.keys(this.quizCharacters).length;
         // Cases in which no data is loaded -> redirect to home
         if( this.numberOfCards === 0 ) {
-            this.$router.push('/KanaAppDeploy/');
+            this.$router.push('/Kana-Learner-Vue/');
         }
     }
 }

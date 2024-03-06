@@ -146,7 +146,7 @@ export default {
                 this.nothingSelected = true;
                 return;
             }
-            this.$router.push("/KanaAppDeploy/quiz");
+            this.$router.push("/Kana-Learner-Vue/quiz");
         },
     },
     beforeMount() {
